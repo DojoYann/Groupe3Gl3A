@@ -1,10 +1,11 @@
 # Groupe3Gl3A
 Theme1 Combat de Robot
 
-Participants : *Ndogmo Yannis alias DojoYann
-               *Toukam Ornella alias Ornela-gaby
-               *Abdoul Aziz alias aziz237
-               *Si Evina alias
-               *Sonkeng Moïse alias Sonkeng97
-               *Finyom Dimitri alias Dimitrx
-               *Sylvain Kanko alias
+Participants : 
+*Dongmo Yannis alias DojoYann
+*Toukam Ornella alias Ornela-gaby
+*Abdoul Aziz alias aziz237
+*Si Evina alias
+*Sonkeng Moïse alias Sonkeng97
+*Finyom Dimitri alias Dimitrx
+*Sylvain Kanko alias

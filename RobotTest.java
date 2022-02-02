@@ -1,49 +1,39 @@
 import org.junit.jupiter.api.Assertions;
-import static org.junit.jupiter.api.Assertions.*;
 
 class RobotTest {
-    Robot D2R2  = new Robot("D2R2");
-    Robot Data = new Robot("Data");
-        @org.junit.jupiter.api.Test
-        void fire() {
-            assertEquals(Data.getVie(),D2R2.getVie());
+    Robot botM  = new Robot("botMaster");
+    Robot botN = new Robot("botNinja");
+
+    @Test
+    void testBotName(){
+        if(assertNotNull(botM)){
+            assertEquals(botM.getNom(), "botMaster");
         }
+    }
+    //le robot touché(botN) doit perdre 2 points de vie.
+    @Test
+    void testFire(){
+            botM.fire(botN);
+            int val = botN.getPvie() - 2;
+            assertEquals(botN.getPvie(), val);
+    }
 
-        @org.junit.jupiter.api.Test
-        void isDead() {
+    //si les points de vie passent au négatif, alors on peut tirer sur des robots morts.
+    @Test
+    void testFireDead(){
+        botM.setVie(0);
+        botN.fire(botM);
+        assertTrue(botM.getPvie() => 0);
+    }
 
-        }
-        @org.junit.jupiter.api.Test
-         void TestName(){
-            assertEquals(D2R2.toString(),"Robot D2R2");
-            assertEquals(Data.toString(),"Robot Data");
-         }
+    botM.setPvie(10);
+    botN.setPvie(10);
 
-        @org.junit.jupiter.api.Test
-        void TestFight(){
-            D2R2.fire(Data);
-            Robot gagnant = Arena.fight(D2R2,Data);
-            assertEquals(D2R2, gagnant);
-        }
-
-        // teste qu'il est impossible de tirer sur un robot mort//
-          @org.junit.jupiter.api.Test
-           void TestDeadFire(){
-            Data.setVie(0);
-            Assertions.assertTrue(D2R2.fire(Data));
-
-        }
-
-        @org.junit.jupiter.api.Test
-        void TestFire(){
-            //je reinitialise les points de vie des differents robots
-            D2R2.setVie(10);
-            Data.setVie(10);
-            //j'effectue un tir sur Data//
-            D2R2.fire(Data);
-            assertNotEquals(Data.getVie(),D2R2.getVie());
-        }
-
+    //le premier à tirer (botN) doit gagner si les combattants ont le meme nombre de points de vie.
+    @Test
+    void testFight(){
+        assertEquals(botN, fight(botN,botM));
+    }
 
 
 }

@@ -5,9 +5,12 @@ public class Arena
             botX.fire(botY);
             if( !botY.isDead() ) botY.fire(botX);
         }
-        if(botX.isDead()){
+        if(botX.isDead())
+        {
             return botY;
-        }else{
+        }
+        else  
+        {
             return botX;
         }
     }
